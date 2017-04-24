@@ -1,0 +1,24 @@
+---
+- name: link the repo to the pkgbuilder home dir
+  file: src="../../../pdr/data/packages/" dest="/home/pkgbuilder/pkg" state=link force=yes
+
+- name: link the poudriere config to the zfs volume
+  file: src="../../pdr" dest="/usr/local/poudriere" state=link force=yes
+
+
+- name: Creating the Poudriere jails. This may take a while
+  shell: poudriere jail -c -j '{{item.name}}' -v '{{item.release}}' -a '{{item.arch}}' creates='/pdr/jails/{{item.name}}'
+  with_items: "{{poudriere_jail_list}}"
+
+
+- name: Downloading the ports tree
+  shell: poudriere ports -c -B "{{item.branch}}" -m "{{item.method}}" -p "{{item.name}}" creates="/pdr/ports/{{item.name}}/"
+  with_items: "{{poudriere_ports_list}}"
+
+
+- name: create base directory for Poudriere packages
+  file: path=/pdr/data/packages state=directory mode=0755 owner=root group=wheel
+
+- name: Create directories with right permissions to avoid pkg leaks
+  file: path="/pdr/data/packages/{{item.name}}-{{item.default_ports}}-{{item.default_set}}" state=directory mode=0750 owner=root group=pkgbuilder
+  with_items: "{{poudriere_jail_list}}"

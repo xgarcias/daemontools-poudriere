@@ -13,6 +13,14 @@
   tags:
   - poudriere
 
+- include: config.yml
+  tags:
+  - poudriere
+
+- include: jails.yml
+  tags:
+  - poudriere
+
 #- include: svc.yml
 #  tags:
 #  - poudriere

@@ -1,2 +1,12 @@
 ---
 poudriere_svc_dir: "{{svscan_dir}}/poudriere"
+
+poudriere_jail_list:
+- { name: "103amd64", arch: "amd64", release: "10.3-RELEASE", default_set: "libressl", default_ports: "2017Q2" }
+
+poudriere_ports_list:
+- { name: "2017Q2", branch: "branches/2017Q2", method: "svn"}
+
+poudriere_zpool_name: "zroot"
+poudriere_distfiles_cache: "/var/ports/distfiles"
+poudriere_parallel_jobs: "2"

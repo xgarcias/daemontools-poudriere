@@ -1,0 +1,2 @@
+- name: Upload config
+  template: src=poudriere.conf.j2 dest=/usr/local/etc/poudriere.conf owner="root" group="wheel" mode=644
