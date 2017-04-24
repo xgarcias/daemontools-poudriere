@@ -1,0 +1,3 @@
+---
+svscan_dir: "/var/service"
+svscan_src: "/usr/local/var/service"

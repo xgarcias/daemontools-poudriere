@@ -1,0 +1,2 @@
+- name: restart svc service
+  shell: svc -t /var/service/{{ svscan_service_name }}

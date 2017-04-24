@@ -1,0 +1,19 @@
+---
+- name: install daemontools pkg
+  pkgng: state=present name={{item}}
+  with_items:
+  - daemontools
+
+- name: dir structure for svscan
+  file: path={{item}} state=directory mode=0755
+  with_items:
+  - "{{svscan_dir}}"
+  - "{{svscan_src}}"
+
+- name: Set daemontools rc.conf flags
+  sysrc: name={{ item.name }} value={{ item.value }} state=present
+  with_items:
+    - { name: svscan_enable, value: "YES" }
+
+- name: enable svscan
+  service: name="svscan" enabled="yes" state="running"

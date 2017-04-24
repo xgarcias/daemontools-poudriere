@@ -1,0 +1,13 @@
+---
+
+- include: packages.yml
+  tags:
+  - daemontools
+
+- include: service.yml
+  tags:
+  - daemontools
+
+- include: service_skeleton.yml
+  tags:
+  - daemontools
