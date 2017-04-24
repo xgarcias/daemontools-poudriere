@@ -1,0 +1,2 @@
+---
+poudriere_svc_dir: "{{svscan_dir}}/poudriere"

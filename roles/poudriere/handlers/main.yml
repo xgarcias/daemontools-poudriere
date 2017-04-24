@@ -1,0 +1,2 @@
+- name: restart poudriere
+  command: svc -t {{poudriere_svc_dir}}

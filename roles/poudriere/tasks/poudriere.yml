@@ -1,0 +1,14 @@
+---
+
+- name: Copy the supervisor script
+  template: src=svscan_script.j2 dest="{{svscan_src}}/poudriere/run" owner="root" group="wheel" mode=0755
+  notify: restart poudriere
+
+#- name: poudriere config file
+#  template: src=poudriere.conf.j2 dest="{{svscan_src}}/poudriere/poudriere.conf" owner="nobody" group="wheel" mode=0640
+
+
+# Relative path to {{svscan_src}} to allow svc management from outside the jail
+#- name: activate poudriere service
+#  svc: name=poudriere state=started  enabled=yes service_dir="{{svscan_dir}}" service_src="../..{{svscan_src}}"
+

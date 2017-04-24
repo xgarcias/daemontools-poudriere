@@ -1,0 +1,12 @@
+---
+
+
+- include: packages.yml
+  tags:
+  - poudriere
+
+- include: poudriere.yml
+  tags:
+  - poudriere
+
+
