@@ -9,6 +9,10 @@
   tags:
   - poudriere
 
+- include: pki.yml
+  tags:
+  - poudriere
+
 #- include: svc.yml
 #  tags:
 #  - poudriere

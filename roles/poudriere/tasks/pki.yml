@@ -1,0 +1,14 @@
+---
+
+- file: state="directory" path="/usr/local/etc/pkg/certs" mode="0700" owner="root" group="wheel"
+
+
+- name: Generate RSA private key for pkg signing
+  shell: openssl genrsa -out ./reposign.privkey 2048 chdir=/usr/local/etc/pkg/certs/ creates=/usr/local/etc/pkg/certs/reposign.privkey
+
+
+- name: Generate RSA public key for pkg signing
+  shell: openssl rsa -in reposign.privkey -pubout -out reposign.pubkey chdir=/usr/local/etc/pkg/certs/ creates=/usr/local/etc/pkg/certs/reposign.pubkey
+
+- name: fix priv RSA key permissions
+  file: name=/usr/local/etc/pkg/certs/reposign.privkey mode=0400
