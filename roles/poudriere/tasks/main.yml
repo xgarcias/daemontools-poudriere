@@ -5,8 +5,8 @@
   tags:
   - poudriere
 
-- include: svc.yml
-  tags:
-  - poudriere
+#- include: svc.yml
+#  tags:
+#  - poudriere
 
 
