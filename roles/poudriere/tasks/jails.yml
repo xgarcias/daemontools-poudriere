@@ -19,6 +19,9 @@
 - name: create base directory for Poudriere packages
   file: path=/pdr/data/packages state=directory mode=0755 owner=root group=wheel
 
+- name: create distdir
+  file: path={{poudriere_distfiles_cache}} state=directory mode=0755 owner=root group=wheel
+
 - name: Create directories with right permissions to avoid pkg leaks
   file: path="/pdr/data/packages/{{item.name}}-{{item.default_ports}}-{{item.default_set}}" state=directory mode=0750 owner=root group=pkgbuilder
   with_items: "{{poudriere_jail_list}}"
