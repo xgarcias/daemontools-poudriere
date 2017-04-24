@@ -1,0 +1,5 @@
+- name: Create pkgbuilder group
+  group: name="pkgbuilder" state="present" gid="1500"
+
+- name: Create pkgbuilder account
+  user: name="pkgbuilder" comment="pkg builder account" home="/home/pkgbuilder" uid="1500" group="pkgbuilder" groups="pkgbuilder,wheel"

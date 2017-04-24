@@ -5,6 +5,10 @@
   tags:
   - poudriere
 
+- include: users.yml
+  tags:
+  - poudriere
+
 #- include: svc.yml
 #  tags:
 #  - poudriere
