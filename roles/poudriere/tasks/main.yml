@@ -21,6 +21,10 @@
   tags:
   - poudriere
 
+- include: build_config.yml
+  tags:
+  - poudriere
+
 - include: svc.yml
   tags:
   - poudriere
