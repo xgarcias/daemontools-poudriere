@@ -16,3 +16,4 @@
   gather_facts: yes
   roles:
     - poudriere
+    - nginx
