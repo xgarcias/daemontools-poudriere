@@ -9,6 +9,23 @@ poudriere_jail_list:
 
 poudriere_ports_list:
 - { name: "2017Q2", branch: "branches/2017Q2", method: "svn"}
+
+poudriere_makefile:
+  103amd64-2017Q2-libressl:  |
+     WITH_OPENSSL_PORT=      yes
+     DEFAULT_VERSIONS+=ssl=libressl
+     OPTIONS_UNSET= GSSAPI_BASE
+     OPTIONS_SET=   GSSAPI_NONE
+     OPTIONS_UNSET+= GSSAPI
+     .if ${.CURDIR:M*/ftp/curl}
+     OPTIONS_FILE_UNSET+=TLS_SRP
+     .endif
+poudriere_pkglist:
+  103amd64-2017Q2-libressl:
+    - editors/vim-lite
+    - net/rsync
+    - shells/zsh
+
 ```
 
 The number of parallel jobs is configured with `poudriere_parallel_jobs: 2`
