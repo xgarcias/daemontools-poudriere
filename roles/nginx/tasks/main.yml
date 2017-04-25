@@ -4,3 +4,7 @@
 - include: packages.yml
   tags:
   - nginx
+
+- include: service.yml
+  tags:
+  - nginx
