@@ -3,3 +3,6 @@
   sysrc: name={{ item.name }} value={{ item.value }} state=present
   with_items:
     - { name: nginx_enable, value: "YES" }
+
+- name: Enable nginx
+  service: name="nginx" state="running" enabled="yes"
