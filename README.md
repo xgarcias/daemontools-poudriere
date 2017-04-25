@@ -1,5 +1,5 @@
 # daemontools-poudriere
-Ansible role to deploy Poudriere and monitor the queues with daemontools
+Ansible role to deploy Poudriere (and Nginx for the web statistics) and monitor the queues with daemontools.
 
 Modify the following variables to define the port and sets you want to configure.
 
