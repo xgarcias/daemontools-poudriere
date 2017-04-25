@@ -1,5 +1,5 @@
 - name: Create empty list of packages for the sets
-  file:  path="/usr/local/etc/poudriere.d/{{item.name}}-{{item.default_ports}}-{{item.default_set}}-pkglist" owner=root group=wheel mode=0644 state=touch
+  template:  src=pkglist.j2 dest="/usr/local/etc/poudriere.d/{{item.name}}-{{item.default_ports}}-{{item.default_set}}-pkglist" owner=root group=wheel mode=0644
   with_items: "{{poudriere_jail_list}}"
 
 

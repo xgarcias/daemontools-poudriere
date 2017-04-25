@@ -1,0 +1,4 @@
+{% set pkglist = poudriere_pkglist[item.name+'-'+item.default_ports+'-'+item.default_set] %}
+{% for pkg in pkglist %}
+{{pkg}}
+{% endfor %}
