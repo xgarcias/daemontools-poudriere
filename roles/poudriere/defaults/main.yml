@@ -10,3 +10,18 @@ poudriere_ports_list:
 poudriere_zpool_name: "zroot"
 poudriere_distfiles_cache: "/var/ports/distfiles"
 poudriere_parallel_jobs: "2"
+
+poudriere_makefile:
+  103amd64-2017Q2-libressl:  |
+     WITH_OPENSSL_PORT=      yes
+     DEFAULT_VERSIONS+=ssl=libressl
+
+
+     OPTIONS_UNSET= GSSAPI_BASE
+     OPTIONS_SET=   GSSAPI_NONE
+
+     OPTIONS_UNSET+= GSSAPI
+
+     .if ${.CURDIR:M*/ftp/curl}
+     OPTIONS_FILE_UNSET+=TLS_SRP
+     .endif

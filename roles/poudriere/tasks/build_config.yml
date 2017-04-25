@@ -4,7 +4,7 @@
 
 
 - name: Create empty make.conf files for the sets
-  file:  path="/usr/local/etc/poudriere.d/{{item.name}}-{{item.default_ports}}-{{item.default_set}}-make.conf" owner=root group=wheel mode=0644 state=touch
+  template:  src=make.conf.j2 dest="/usr/local/etc/poudriere.d/{{item.name}}-{{item.default_ports}}-{{item.default_set}}-make.conf" owner=root group=wheel mode=0644
   with_items: "{{poudriere_jail_list}}"
 
 - name: upload makefile
