@@ -20,6 +20,7 @@ poudriere_makefile:
      .if ${.CURDIR:M*/ftp/curl}
      OPTIONS_FILE_UNSET+=TLS_SRP
      .endif
+     
 poudriere_pkglist:
   103amd64-2017Q2-libressl:
     - editors/vim-lite
